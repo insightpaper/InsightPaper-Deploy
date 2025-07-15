@@ -1,0 +1,28 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const course_1 = __importDefault(require("../controllers/course"));
+const document_1 = __importDefault(require("../controllers/document"));
+const router = (0, express_1.Router)();
+router.get("/", course_1.default.getAllCourses);
+router.get("/Id/:courseId", course_1.default.getCourseById);
+router.get("/Professor", course_1.default.getCoursesProfessor);
+router.get("/Student", course_1.default.getCoursesStudent);
+router.get("/courseStudents/:courseId", course_1.default.getStudentByCourses);
+router.get("/professorStudents", course_1.default.getStudentByProfessor);
+router.get("/documents/:courseId", document_1.default.getDocuments);
+router.get("/history/:documentId", document_1.default.getHistory);
+router.get("/documentsId/:documentId", document_1.default.getDocumentById);
+router.get("/studentActivity/:studentId/:courseId", course_1.default.getStudentActivityCourse);
+router.post("/", course_1.default.createCourse);
+router.post("/joinCourse", course_1.default.JoinCourse);
+router.post("/documents", document_1.default.createDocument);
+router.put("/leaveCourse/:courseId", course_1.default.LeaveCourse);
+router.put("/removeStudent/:courseId", course_1.default.RemoveStudent);
+router.put("/", course_1.default.updateCourse);
+router.put("/documents", document_1.default.updateDocument);
+router.delete("/:courseId", course_1.default.deleteCourse);
+exports.default = router;

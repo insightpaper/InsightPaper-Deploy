@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const question_1 = __importDefault(require("../controllers/question"));
+const router = (0, express_1.Router)();
+router.get("/:documentId", question_1.default.getHistory);
+router.get("/downloadHistory/:documentId", question_1.default.downloadHistory);
+router.get("/downloadHistory/:documentId/student/:studentId", question_1.default.downloadHistory);
+router.get("/chats/:courseId/student/:studentId", question_1.default.getStudentChats);
+router.get("/chat/:documentId/student/:studentId", question_1.default.getChat);
+router.post("/chat/:documentId", question_1.default.postQuestionLLM);
+router.post("/gptSearch/:courseId", question_1.default.gptSearch);
+router.post("/gptFullContext/:courseId", question_1.default.gptFullContext);
+router.post("/response/:questionId", question_1.default.postResponse);
+router.post("/comment/:questionId", question_1.default.postComment);
+router.put("/:questionId", question_1.default.evaluateQuestion);
+exports.default = router;
