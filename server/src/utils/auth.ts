@@ -20,14 +20,14 @@ export function generateToken(
   payload: UserInterface,
   refresh: boolean = false
 ): string {
-  const secretKey: Secret = (refresh
+  const secretKey: Secret = refresh
     ? envConfig.refreshTokenSecret
-    : envConfig.jwtSecret) as string;
+    : envConfig.jwtSecret;
 
   const options: SignOptions = {
-    expiresIn: (refresh 
-      ? envConfig.refreshTokenExpiresIn
-      : envConfig.authTokenExpiresIn) as string,
+    expiresIn: refresh 
+      ? process.env.REFRESH_TOKEN_SECRET
+      : process.env.AUTH_TOKEN_EXPIRES_IN,
   };
 
   return jwt.sign(payload, secretKey, options);
@@ -48,7 +48,7 @@ export function generateForgotPasswordToken(payload: {
 
   const secretKey: Secret = envConfig.forgotPasswordSecret;
   const options: SignOptions = {
-    expiresIn: envConfig.forgotPasswordTokenExpiresIn as string,
+    expiresIn: process.env.FORGOT_PASSWORD_TOKEN_EXPIRES_IN,
   };
 
   const token = jwt.sign(payload, secretKey, options);
