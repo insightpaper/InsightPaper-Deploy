@@ -26,9 +26,9 @@ export function generateToken(
     payload,
     refresh ? envConfig.refreshTokenSecret : envConfig.jwtSecret,
     {
-      expiresIn: refresh
+      expiresIn: (refresh
         ? envConfig.refreshTokenExpiresIn
-        : envConfig.authTokenExpiresIn,
+        : envConfig.authTokenExpiresIn) as string,
     }
   );
 
@@ -48,7 +48,7 @@ export function generateForgotPasswordToken(payload: {
   const tokenId = crypto.randomBytes(16).toString("hex");
   payload.tokenId = tokenId;
   const token = jwt.sign(payload, envConfig.forgotPasswordSecret, {
-    expiresIn: envConfig.forgotPasswordTokenExpiresIn,
+    expiresIn: envConfig.forgotPasswordTokenExpiresIn as string,
   });
 
   return {token, tokenId};
