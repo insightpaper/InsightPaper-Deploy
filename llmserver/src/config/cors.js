@@ -1,5 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const corsOptions = {
-  origin: '*', // <- público
+  origin: process.env.CLIENT_SERVER_ROUTE, 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: false // <- importante: no se puede usar 'credentials: true' con 'origin: *'
+  credentials: true
 };
+
+export default corsOptions;
