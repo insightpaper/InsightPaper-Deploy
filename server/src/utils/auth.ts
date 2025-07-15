@@ -25,9 +25,7 @@ export function generateToken(
     : envConfig.jwtSecret;
 
   const options: SignOptions = {
-    expiresIn: refresh 
-      ? process.env.REFRESH_TOKEN_SECRET
-      : process.env.AUTH_TOKEN_EXPIRES_IN,
+    expiresIn: refresh ? 604800 /* 7d */ : 3600 /* 1h */,
   };
 
   return jwt.sign(payload, secretKey, options);
@@ -48,7 +46,7 @@ export function generateForgotPasswordToken(payload: {
 
   const secretKey: Secret = envConfig.forgotPasswordSecret;
   const options: SignOptions = {
-    expiresIn: process.env.FORGOT_PASSWORD_TOKEN_EXPIRES_IN,
+    expiresIn: 900 /* 15 min */,
   };
 
   const token = jwt.sign(payload, secretKey, options);
