@@ -1,1 +1,1 @@
-# InsightPaper-Deploy
+# InsightPaper

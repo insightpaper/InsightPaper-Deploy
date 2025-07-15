@@ -1,0 +1,1824 @@
+{
+	"info": {
+		"_postman_id": "e1cd91ef-7225-4452-b5b0-7c643b29d562",
+		"name": "InsightPaper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26535459"
+	},
+	"item": [
+		{
+			"name": "courses - old",
+			"item": [
+				{
+					"name": "get student activity",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenProfessor}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/studentActivity/BE065038-F4A7-45AE-9691-57ED0D8CB4AE/9998D991-8586-4A93-8B1B-07816FCEBF08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								"studentActivity",
+								"BE065038-F4A7-45AE-9691-57ED0D8CB4AE",
+								"9998D991-8586-4A93-8B1B-07816FCEBF08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get professor courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenProfessor}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Introducción a TypeScript\",\r\n  \"description\": \"Curso básico de TypeScript\",\r\n  \"semester\": \"2024-1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/Professor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								"Professor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/Student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								"Student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update courses",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenProfessor}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"1\",\r\n    \"description\":\"2\",\r\n    \"semester\":1,\r\n    \"courseCode\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwQUE1MTg4OC03Qzg1LTQ5OUQtOTAyNS0yMUM3QjFDNUY0NUUiLCJuYW1lIjoiQW5kcmVzIFF1ZXNhZGEiLCJlbWFpbCI6ImFuZHJlc3F1ZXNhZGE3MUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRRS2Q4by9yQW9jTC5MV3ljUExYS3IuTG9OVXdwNDJ1OXNkUnlXMlkyZDBrVk5sc0tPQmpFVyIsImRvdWJsZUZhY3RvckVuYWJsZWQiOnRydWUsInBhc3N3b3JkQ2hhbmdlZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOiIyMDI1LTAzLTExVDE1OjEyOjQ0LjU5MFoiLCJtb2RpZmllZERhdGUiOiIyMDI1LTAzLTE0VDAzOjAyOjE5LjkxM1oiLCJyb2xlcyI6W3sibmFtZSI6IkFkbWluIn1dLCJpYXQiOjE3NDI5OTI5NjksImV4cCI6MTc0MzI1MjE2OX0.MwlYMXuWObxtIXM7BvSIS4S1WJUIf2vY8pB3c8oUNgk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Introducción a TypeScript\",\r\n  \"description\": \"Curso básico de TypeScript\",\r\n  \"semester\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseCode\": \"10007\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/joinCourse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								"joinCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leave course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJCRTA2NTAzOC1GNEE3LTQ1QUUtOTY5MS01N0VEMEQ4Q0I0QUUiLCJuYW1lIjoiTWFudWVsIiwiZW1haWwiOiJtLmFsZWFuZHJvMDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkcGI5WERpYnRQQ0JvZ3JsRU5MdWNLdWs4eDNya1RMaFNXc1RDbGFOMGlndXNva1JlWjRma0siLCJkb3VibGVGYWN0b3JFbmFibGVkIjpmYWxzZSwicGFzc3dvcmRDaGFuZ2VkIjpmYWxzZSwiY3JlYXRlZERhdGUiOiIyMDI1LTAzLTI3VDIxOjQ4OjA2LjIyM1oiLCJtb2RpZmllZERhdGUiOiIyMDI1LTAzLTI3VDIxOjQ4OjA2LjIyM1oiLCJyb2xlcyI6W3sibmFtZSI6IlN0dWRlbnQifV0sImlhdCI6MTc0MzExMjEyMSwiZXhwIjoxNzQzMzcxMzIxfQ.zmltTT38y6wJkC0zl_7JQzcle8lv7SvvpRZJGFHV16M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/courses/leaveCourse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"courses",
+								"leaveCourse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "documents",
+			"item": [
+				{
+					"name": "Cursos",
+					"item": [
+						{
+							"name": "Student",
+							"item": [
+								{
+									"name": "get documents course",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenProfessor}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/documents/9998D991-8586-4A93-8B1B-07816FCEBF08",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"documents",
+												"9998D991-8586-4A93-8B1B-07816FCEBF08"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get documents by id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/documentsId/EAB991C3-BEBA-44B9-B980-7E2EFB183ED7",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"documentsId",
+												"EAB991C3-BEBA-44B9-B980-7E2EFB183ED7"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get history",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/history/EAB991C3-BEBA-44B9-B980-7E2EFB183ED7",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"history",
+												"EAB991C3-BEBA-44B9-B980-7E2EFB183ED7"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete document",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/documents/deleteDocument/9998D991-8586-4A93-8B1B-07816FCEBF08/476831E4-1193-4A7E-BEEA-8FC2D67D7CA4",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"documents",
+												"deleteDocument",
+												"9998D991-8586-4A93-8B1B-07816FCEBF08",
+												"476831E4-1193-4A7E-BEEA-8FC2D67D7CA4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update document",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"documentId\":\"EAB991C3-BEBA-44B9-B980-7E2EFB183ED7\",\r\n\"tittle\": \"Proyecto inicial\",\r\n\"description\": \"Documento ordinal sobre la practica\",\r\n\"labels\": \"{\\\"labels\\\": [\\\"Practica\\\", \\\"Carrera\\\"]\",\r\n\"firebaseUrl\": \"NULL\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/documents",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"documents"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "create document",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"title\": \"The witcher\",\r\n\"description\": \"Game\",\r\n\"labels\": \"[\\\"Multiclass\\\", \\\"Fantasy\\\"]\",\r\n\"firebaseUrl\": \"NULL\",\r\n\"courseId\":\"9998D991-8586-4A93-8B1B-07816FCEBF08\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/documents/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"documents",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get document by text",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"courseId\":\"9998D991-8586-4A93-8B1B-07816FCEBF08\",\r\n\"textSearch\":\"Proyecto\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/documentsSearch",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"documentsSearch"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Admin",
+							"item": [
+								{
+									"name": "get all students",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenAdmin}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/users/allStudents",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"users",
+												"allStudents"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete professor",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenAdmin}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/users/professor/544847EB-0559-4719-9F7E-0905C8317CC0",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"users",
+												"professor",
+												"544847EB-0559-4719-9F7E-0905C8317CC0"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Professor",
+							"item": [
+								{
+									"name": "get students by course",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenProfessor}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/courseStudents/9998D991-8586-4A93-8B1B-07816FCEBF08",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"courseStudents",
+												"9998D991-8586-4A93-8B1B-07816FCEBF08"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get students by professor",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenProfessor}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/courses/professorStudents",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"courses",
+												"professorStudents"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Personales",
+					"item": [
+						{
+							"name": "Student",
+							"item": [
+								{
+									"name": "create student document",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"title\": \"Expedition 38\",\r\n\"description\": \"Instrucciones\",\r\n\"labels\": \"[\\\"Proyecto\\\", \\\"Final\\\"]\",\r\n\"firebaseUrl\": \"https://firebasestorage.googleapis.com/v0/b/uploadingfile-fc95e.appspot.com/o/documents%2FA65CD39F-7B7F-488C-B87A-7680FF1DA93B%2F1744748661715_This%20is%20a%20test?alt=media&token=9fce6be6-5ad4-416b-90d6-8acc9f38c0d0\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/documents/studentDocument",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"documents",
+												"studentDocument"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all student documents",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/documents/studentDocuments",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"documents",
+												"studentDocuments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get top five student documents",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/documents/topFiveStudentDocuments",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"documents",
+												"topFiveStudentDocuments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update personal document",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"title\": \"Expedition 33\",\r\n\"description\": \"Best game\",\r\n\"labels\": \"[\\\"Gustave\\\", \\\"Maelle\\\"]\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/documents/studentDocuments/3461ABA4-85E1-472A-8D9D-BB6D7D148DE6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"documents",
+												"studentDocuments",
+												"3461ABA4-85E1-472A-8D9D-BB6D7D148DE6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete personal document",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "{{authTokenStudent}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/api/documents/studentDocuments/3461ABA4-85E1-472A-8D9D-BB6D7D148DE6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"api",
+												"documents",
+												"studentDocuments",
+												"3461ABA4-85E1-472A-8D9D-BB6D7D148DE6"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "get professorDetails",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenAdmin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/users/professorDetails/0AA51888-7C85-499D-9025-21C7B1C5F45E",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"professorDetails",
+										"0AA51888-7C85-499D-9025-21C7B1C5F45E"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "professor activity",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenAdmin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/users/profesorsActivity/0AA51888-7C85-499D-9025-21C7B1C5F45E",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"profesorsActivity",
+										"0AA51888-7C85-499D-9025-21C7B1C5F45E"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "delete account",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenStudent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/users/account/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"account",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Professor",
+					"item": [
+						{
+							"name": "create recommendation",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenProfessor}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\": \"You never see it coming\",\r\n    \"isPrivate\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/users/recommendation/9998D991-8586-4A93-8B1B-07816FCEBF08/FC3DA5BE-9414-4418-8CEE-8FE1975EC66F",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"recommendation",
+										"9998D991-8586-4A93-8B1B-07816FCEBF08",
+										"FC3DA5BE-9414-4418-8CEE-8FE1975EC66F"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "student metrics",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenProfessor}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/api/users/studentsMetrics/9998D991-8586-4A93-8B1B-07816FCEBF08",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"users",
+										"studentsMetrics",
+										"9998D991-8586-4A93-8B1B-07816FCEBF08"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "questions",
+			"item": [
+				{
+					"name": "Admin",
+					"item": []
+				},
+				{
+					"name": "Professor",
+					"item": [
+						{
+							"name": "get student chats",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenProfessor}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"studentId\":\"BE065038-F4A7-45AE-9691-57ED0D8CB4AE\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/questions/chats/9998D991-8586-4A93-8B1B-07816FCEBF08",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"questions",
+										"chats",
+										"9998D991-8586-4A93-8B1B-07816FCEBF08"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create question Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenProfessor}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"evaluation\": \"0\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/questions/3FBCEFCA-D039-46A9-80B9-36FE0BFE7E1E",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"questions",
+										"3FBCEFCA-D039-46A9-80B9-36FE0BFE7E1E"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create comment",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenProfessor}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\": \"You never see it coming\",\r\n    \"isPrivate\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/questions/comment/288CDAA1-B08A-4451-AA82-C76E5044E4D3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"questions",
+										"comment",
+										"288CDAA1-B08A-4451-AA82-C76E5044E4D3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "create question API-Server",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenStudent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"question\": \"Dime la cantidad de veces que te he escrito\",\r\n\"model\": \"gemini\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/questions/chat/8CA874CD-4654-46FC-9452-22E55629C9F5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"questions",
+										"chat",
+										"8CA874CD-4654-46FC-9452-22E55629C9F5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create response",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenStudent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"response\": \"Buenas tardes\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/questions/response/6407CAFD-286C-44CE-92D3-321EB9D96A48",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"questions",
+										"response",
+										"6407CAFD-286C-44CE-92D3-321EB9D96A48"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get question history",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{authTokenStudent}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/questions/8CA874CD-4654-46FC-9452-22E55629C9F5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"questions",
+										"8CA874CD-4654-46FC-9452-22E55629C9F5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "notification",
+			"item": [
+				{
+					"name": "get  notifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/notifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark notification view",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/notifications/BE065038-F4A7-45AE-9691-57ED0D8CB4AE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"notifications",
+								"BE065038-F4A7-45AE-9691-57ED0D8CB4AE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark all notification view",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/notifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete notification",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/notifications/BE065038-F4A7-45AE-9691-57ED0D8CB4AE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"notifications",
+								"BE065038-F4A7-45AE-9691-57ED0D8CB4AE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete all notification",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/notifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "models",
+			"item": [
+				{
+					"name": "get models",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/models",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"models"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "gptSearch",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"dragon\",\r\n    \"documentsNumber\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/questions/gptSearch/9998D991-8586-4A93-8B1B-07816FCEBF08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"questions",
+								"gptSearch",
+								"9998D991-8586-4A93-8B1B-07816FCEBF08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "full context search",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "{{authTokenStudent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"game\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/questions/gptFullContext/9998D991-8586-4A93-8B1B-07816FCEBF08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"questions",
+								"gptFullContext",
+								"9998D991-8586-4A93-8B1B-07816FCEBF08"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authTokenStudent",
+			"value": "auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJCRTA2NTAzOC1GNEE3LTQ1QUUtOTY5MS01N0VEMEQ4Q0I0QUUiLCJuYW1lIjoiTWFudWVsIiwiZW1haWwiOiJtLmFsZWFuZHJvMDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkUW5hQTFJOXZ5U1NZdWpuSnhXTUdHLjBTeFQ4NHczN0dmU1NudlFSRExvTUdMSWQ4cnJQMDIiLCJkb3VibGVGYWN0b3JFbmFibGVkIjpmYWxzZSwicGFzc3dvcmRDaGFuZ2VkIjp0cnVlLCJjcmVhdGVkRGF0ZSI6IjIwMjUtMDMtMjdUMjE6NDg6MDYuMjIzWiIsIm1vZGlmaWVkRGF0ZSI6IjIwMjUtMDMtMjdUMjE6NDg6MDYuMjIzWiIsInJvbGVzIjpbeyJuYW1lIjoiU3R1ZGVudCJ9XSwiaWF0IjoxNzQ4NDgwNjgxLCJleHAiOjE3NDg3Mzk4ODF9.8dAj1x0vJydEjkTZ2mAibgz0l6BEnyHqPDoSwpQ3N7o",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000/api/",
+			"type": "string"
+		},
+		{
+			"key": "authTokenAdmin",
+			"value": "auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJCRTA2NTAzOC1GNEE3LTQ1QUUtOTY5MS01N0VEMEQ4Q0I0QUUiLCJuYW1lIjoiTWFudWVsIiwiZW1haWwiOiJtLmFsZWFuZHJvMDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkUW5hQTFJOXZ5U1NZdWpuSnhXTUdHLjBTeFQ4NHczN0dmU1NudlFSRExvTUdMSWQ4cnJQMDIiLCJkb3VibGVGYWN0b3JFbmFibGVkIjpmYWxzZSwicGFzc3dvcmRDaGFuZ2VkIjp0cnVlLCJjcmVhdGVkRGF0ZSI6IjIwMjUtMDMtMjdUMjE6NDg6MDYuMjIzWiIsIm1vZGlmaWVkRGF0ZSI6IjIwMjUtMDMtMjdUMjE6NDg6MDYuMjIzWiIsInJvbGVzIjpbeyJuYW1lIjoiQWRtaW4ifV0sImlhdCI6MTc0OTI0NzcwNSwiZXhwIjoxNzQ5NTA2OTA1fQ.gBvB6N9EDOjtS8UQszRVRiEMeKjTiON5re-BzjjGcvg",
+			"type": "string"
+		},
+		{
+			"key": "authTokenProfessor",
+			"value": "auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJDMDdGM0QxNC1CNUM5LTQ2ODQtODE3Ri0xMEJDNkM0MzhERkEiLCJuYW1lIjoiTWFudWVsIEFsZWphbmRybyIsImVtYWlsIjoibS5hbGVqYW5kcm8wMEBlc3R1ZGlhbnRlYy5jciIsInBhc3N3b3JkIjoiJDJiJDEwJGZNb0ZEUTF0UndWbkF4WFF5amExRS5WVnhoWDh5cVppWlJVZE5GUjUyRDAvbGhQTnZSUE1XIiwiZG91YmxlRmFjdG9yRW5hYmxlZCI6ZmFsc2UsInBhc3N3b3JkQ2hhbmdlZCI6dHJ1ZSwiY3JlYXRlZERhdGUiOiIyMDI1LTAzLTE5VDIwOjAwOjE5LjM3MFoiLCJtb2RpZmllZERhdGUiOiIyMDI1LTAzLTE5VDIwOjUxOjAxLjU2MFoiLCJyb2xlcyI6W3sibmFtZSI6IlByb2Zlc3NvciJ9XSwiaWF0IjoxNzQ5MjQ4MTEyLCJleHAiOjE3NDk1MDczMTJ9.yM8Jfrw1HOiBP9IAgMGYyTv4lkl7-sxwwtnGCxmIJ2c",
+			"type": "string"
+		}
+	]
+}
