@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// server/src/app.ts
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const env_1 = __importDefault(require("./config/env"));
@@ -23,11 +24,10 @@ app.use((0, cors_1.default)({
     credentials: true,
 }));
 app.use((0, cookie_parser_1.default)());
-// Middleware to remove undefined, null, and empty string query parameters
+// Middleware
 app.use(middlewareServices_1.removeEmptyQueryParams);
-// Middleware to check if the route is unprotected
 app.use(middlewareServices_1.checkAuth);
-// Routes
+// Rutas
 app.use(status_routes_1.default);
 app.use("/api/users", users_routes_1.default);
 app.use("/api/courses", courses_routes_1.default);
@@ -35,7 +35,7 @@ app.use("/api/questions", questions_routes_1.default);
 app.use("/api/notifications", notification_routes_1.default);
 app.use("/api/documents", documents_routes_1.default);
 app.use("/api/models", models_routes_1.default);
-// Middleware to set the header for all responses
+// Exponer headers
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
     next();
