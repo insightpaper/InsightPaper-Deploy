@@ -1,4 +1,4 @@
-import jwt, { JwtPayload, Secret, SignOptions } from "jsonwebtoken";
+import jwt, { JwtPayload} from "jsonwebtoken";
 import envConfig from "../config/env";
 import bcrypt from "bcrypt";
 import { authenticator } from "otplib";
@@ -20,15 +20,16 @@ export function generateToken(
   payload: UserInterface,
   refresh: boolean = false
 ): string {
-  const secretKey: Secret = refresh
-    ? envConfig.refreshTokenSecret
-    : envConfig.jwtSecret;
 
-  const options: SignOptions = {
-    expiresIn: refresh ? 604800 /* 7d */ : 3600 /* 1h */,
-  };
+  const token = jwt.sign(
+    payload,
+    refresh ? envConfig.refreshTokenSecret : envConfig.jwtSecret,
+    {
+      expiresIn: refresh ? 604800 /* 7d */ : 3600 /* 1h */,
+    }
+  );
 
-  return jwt.sign(payload, secretKey, options);
+  return token;
 }
 
 /**
@@ -44,12 +45,9 @@ export function generateForgotPasswordToken(payload: {
   const tokenId = crypto.randomBytes(16).toString("hex");
   payload.tokenId = tokenId;
 
-  const secretKey: Secret = envConfig.forgotPasswordSecret;
-  const options: SignOptions = {
-    expiresIn: 900 /* 15 min */,
-  };
-
-  const token = jwt.sign(payload, secretKey, options);
+  const token = jwt.sign(payload, envConfig.forgotPasswordSecret, {
+    expiresIn: 900,
+  });
   return { token, tokenId };
 }
 

@@ -40,13 +40,10 @@ const saltRounds = 10;
  * @returns The JWT token
  */
 function generateToken(payload, refresh = false) {
-    const secretKey = refresh
-        ? env_1.default.refreshTokenSecret
-        : env_1.default.jwtSecret;
-    const options = {
+    const token = jsonwebtoken_1.default.sign(payload, refresh ? env_1.default.refreshTokenSecret : env_1.default.jwtSecret, {
         expiresIn: refresh ? 604800 /* 7d */ : 3600 /* 1h */,
-    };
-    return jsonwebtoken_1.default.sign(payload, secretKey, options);
+    });
+    return token;
 }
 /**
  * Generate forgot password JWT token
@@ -56,11 +53,9 @@ function generateToken(payload, refresh = false) {
 function generateForgotPasswordToken(payload) {
     const tokenId = crypto_1.default.randomBytes(16).toString("hex");
     payload.tokenId = tokenId;
-    const secretKey = env_1.default.forgotPasswordSecret;
-    const options = {
-        expiresIn: 900 /* 15 min */,
-    };
-    const token = jsonwebtoken_1.default.sign(payload, secretKey, options);
+    const token = jsonwebtoken_1.default.sign(payload, env_1.default.forgotPasswordSecret, {
+        expiresIn: 900,
+    });
     return { token, tokenId };
 }
 /**
