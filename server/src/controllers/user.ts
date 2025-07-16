@@ -344,7 +344,7 @@ export default class UsersController {
       console.log("Test-verify 4", envConfig.mainDomain)
 
       res.cookie("auth", authToken, {
-        domain: envConfig.mainDomain,
+        domain: ".onrender.com",
         httpOnly: true,
         secure: envConfig.environment === "production",
         sameSite: "lax",

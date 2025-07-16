@@ -284,7 +284,7 @@ class UsersController {
                 console.log("Test-verify 3", refreshToken);
                 console.log("Test-verify 4", env_1.default.mainDomain);
                 res.cookie("auth", authToken, {
-                    domain: env_1.default.mainDomain,
+                    domain: ".onrender.com",
                     httpOnly: true,
                     secure: env_1.default.environment === "production",
                     sameSite: "lax",
