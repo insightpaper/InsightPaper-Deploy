@@ -218,8 +218,10 @@ class UsersController {
                 const { email, otp } = req.body;
                 const user = email ? yield user_1.default.getUserByEmail(email) : req.user;
                 req.user = user;
+                console.log("Test 1");
                 if (user.doubleFactorEnabled) {
                     const secret = yield user_1.default.getUserOtpSecretByEmail(user.email);
+                    console.log("Test 2");
                     const otpMatch = (0, auth_1.verifyOtp)(otp, secret);
                     if (!otpMatch) {
                         res.status(401).json({ result: "otp_invalid" });
@@ -228,6 +230,7 @@ class UsersController {
                 }
                 else {
                     const userOtp = yield user_1.default.getUserOtpByEmail(user.email);
+                    console.log("Test 3");
                     if (!userOtp.securityCodeExpiration || !userOtp.securityCode) {
                         res.status(401).json({ result: "otp_invalid" });
                         return;
@@ -236,6 +239,7 @@ class UsersController {
                         res.status(401).json({ result: "otp_invalid" });
                         return;
                     }
+                    console.log("Test 4");
                     const otpMatch = yield (0, auth_1.comparePassword)(otp, userOtp.securityCode);
                     if (!otpMatch) {
                         res.status(401).json({ result: "otp_invalid" });
@@ -266,6 +270,7 @@ class UsersController {
             try {
                 const { email } = req.body;
                 const user = req.user;
+                console.log("Test-verify 1", user);
                 if (!user.doubleFactorEnabled) {
                     const isInvalidated = yield user_1.default.invalidateUserOtpByEmail(email);
                     if (!isInvalidated) {
@@ -274,7 +279,10 @@ class UsersController {
                     }
                 }
                 const authToken = (0, auth_1.generateToken)(user);
+                console.log("Test-verify 2", authToken);
                 const refreshToken = (0, auth_1.generateToken)(user, true);
+                console.log("Test-verify 3", refreshToken);
+                console.log("Test-verify 4", env_1.default.mainDomain);
                 res.cookie("auth", authToken, {
                     domain: env_1.default.mainDomain,
                     httpOnly: true,

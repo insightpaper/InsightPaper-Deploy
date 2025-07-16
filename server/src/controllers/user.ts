@@ -260,8 +260,12 @@ export default class UsersController {
 
       req.user = user;
 
+      console.log("Test 1")
+
       if (user.doubleFactorEnabled) {
         const secret = await UsersDao.getUserOtpSecretByEmail(user.email);
+
+        console.log("Test 2")
 
         const otpMatch = verifyOtp(otp, secret);
         if (!otpMatch) {
@@ -270,6 +274,8 @@ export default class UsersController {
         }
       } else {
         const userOtp = await UsersDao.getUserOtpByEmail(user.email);
+
+        console.log("Test 3")
 
         if (!userOtp.securityCodeExpiration || !userOtp.securityCode) {
           res.status(401).json({ result: "otp_invalid" });
@@ -280,6 +286,8 @@ export default class UsersController {
           res.status(401).json({ result: "otp_invalid" });
           return;
         }
+
+        console.log("Test 4")
 
         const otpMatch = await comparePassword(otp, userOtp.securityCode);
 
@@ -315,6 +323,8 @@ export default class UsersController {
 
       const user = req.user;
 
+      console.log("Test-verify 1", user)
+
       if (!user.doubleFactorEnabled) {
         const isInvalidated = await UsersDao.invalidateUserOtpByEmail(email);
 
@@ -326,7 +336,12 @@ export default class UsersController {
 
       const authToken = generateToken(user);
 
+      console.log("Test-verify 2", authToken)
+
       const refreshToken = generateToken(user, true);
+
+      console.log("Test-verify 3", refreshToken)
+      console.log("Test-verify 4", envConfig.mainDomain)
 
       res.cookie("auth", authToken, {
         domain: envConfig.mainDomain,
