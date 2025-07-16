@@ -285,7 +285,7 @@ class UsersController {
                 console.log("Test-verify 4", env_1.default.mainDomain);
                 console.log("Test-verify 5", env_1.default.environment);
                 res.cookie("auth", authToken, {
-                    domain: ".onrender.com",
+                    domain: "insightpaper-deploy-client.onrender.com",
                     httpOnly: true,
                     secure: env_1.default.environment === "production",
                     sameSite: "none",
