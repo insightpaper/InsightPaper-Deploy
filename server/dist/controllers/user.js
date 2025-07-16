@@ -283,19 +283,20 @@ class UsersController {
                 const refreshToken = (0, auth_1.generateToken)(user, true);
                 console.log("Test-verify 3", refreshToken);
                 console.log("Test-verify 4", env_1.default.mainDomain);
+                console.log("Test-verify 5", env_1.default.environment);
                 res.cookie("auth", authToken, {
                     domain: ".onrender.com",
                     httpOnly: true,
                     secure: env_1.default.environment === "production",
-                    sameSite: "lax",
+                    sameSite: "none",
                     maxAge: env_1.default.authCookieMaxAge,
                 });
-                console.log("Test-verify 5");
+                console.log("Test-verify 5", env_1.default.environment);
                 res.cookie("refresh", refreshToken, {
                     domain: env_1.default.mainDomain,
                     httpOnly: true,
                     secure: env_1.default.environment === "production",
-                    sameSite: "lax",
+                    sameSite: "none",
                     maxAge: env_1.default.refreshCookieMaxAge,
                 });
                 console.log("Test-verify 6");

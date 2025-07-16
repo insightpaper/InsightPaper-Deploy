@@ -343,21 +343,23 @@ export default class UsersController {
       console.log("Test-verify 3", refreshToken)
       console.log("Test-verify 4", envConfig.mainDomain)
 
+      console.log("Test-verify 5", envConfig.environment)
+
       res.cookie("auth", authToken, {
         domain: ".onrender.com",
         httpOnly: true,
         secure: envConfig.environment === "production",
-        sameSite: "lax",
+        sameSite: "none",
         maxAge: envConfig.authCookieMaxAge,
       });
 
-      console.log("Test-verify 5")
+      console.log("Test-verify 5", envConfig.environment)
 
       res.cookie("refresh", refreshToken, {
         domain: envConfig.mainDomain,
         httpOnly: true,
         secure: envConfig.environment === "production",
-        sameSite: "lax",
+        sameSite: "none",
         maxAge: envConfig.refreshCookieMaxAge,
       });
 
