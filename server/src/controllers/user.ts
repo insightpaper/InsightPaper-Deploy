@@ -365,6 +365,7 @@ export default class UsersController {
 
       res.status(200).json({ result: true });
     } catch (error: any) {
+      console.log("Test-verify error", error)
       if (error instanceof ValidationError) {
         res.status(400).json({ error: error.cause });
       } else {

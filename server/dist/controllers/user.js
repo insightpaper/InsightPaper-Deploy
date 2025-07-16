@@ -302,6 +302,7 @@ class UsersController {
                 res.status(200).json({ result: true });
             }
             catch (error) {
+                console.log("Test-verify error", error);
                 if (error instanceof ValidationError_1.ValidationError) {
                     res.status(400).json({ error: error.cause });
                 }
