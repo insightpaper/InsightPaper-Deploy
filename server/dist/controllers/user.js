@@ -290,6 +290,7 @@ class UsersController {
                     sameSite: "lax",
                     maxAge: env_1.default.authCookieMaxAge,
                 });
+                console.log("Test-verify 5");
                 res.cookie("refresh", refreshToken, {
                     domain: env_1.default.mainDomain,
                     httpOnly: true,
@@ -297,6 +298,7 @@ class UsersController {
                     sameSite: "lax",
                     maxAge: env_1.default.refreshCookieMaxAge,
                 });
+                console.log("Test-verify 6");
                 res.status(200).json({ result: true });
             }
             catch (error) {

@@ -351,6 +351,8 @@ export default class UsersController {
         maxAge: envConfig.authCookieMaxAge,
       });
 
+      console.log("Test-verify 5")
+
       res.cookie("refresh", refreshToken, {
         domain: envConfig.mainDomain,
         httpOnly: true,
@@ -358,6 +360,8 @@ export default class UsersController {
         sameSite: "lax",
         maxAge: envConfig.refreshCookieMaxAge,
       });
+
+      console.log("Test-verify 6")
 
       res.status(200).json({ result: true });
     } catch (error: any) {
