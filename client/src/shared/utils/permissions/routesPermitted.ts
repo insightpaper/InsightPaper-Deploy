@@ -7,8 +7,8 @@ interface RoutesByRolesPermitted {
 
 const rolesPermitted: RoutesByRolesPermitted = {
   "/": ["Admin", "Professor", "Student"],
-  "/courses": ["Admin", "Professor", "Student"],
-  "/documents": ["Admin", "Professor", "Student"],
+  "/courses": ["Professor", "Student"],
+  "/documents": [ "Professor", "Student"],
   "/documents/student": ["Student"],
   "/dashboard": [],
   "/projects": [],
