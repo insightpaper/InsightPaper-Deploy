@@ -23,7 +23,7 @@ const rolesPermitted: RoutesByRolesPermitted = {
 
 // Ensure "Admin" is included in all routes at the start
 Object.keys(rolesPermitted).forEach((route) => {
-  if (!rolesPermitted[route].includes("Admin") && route !== "/documents/student" && route !== "/courses") {
+  if (!rolesPermitted[route].includes("Admin") && (route !== "/documents/student" && route !== "/courses")) {
     rolesPermitted[route].unshift("Admin"); // Add "Admin" at the beginning
   }
 });
