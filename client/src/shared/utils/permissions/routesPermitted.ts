@@ -7,8 +7,8 @@ interface RoutesByRolesPermitted {
 
 const rolesPermitted: RoutesByRolesPermitted = {
   "/": ["Admin", "Professor", "Student"],
-  "/courses": ["Professor", "Student"],
-  "/documents": [ "Professor", "Student"],
+  "/courses": ["Admin", "Professor", "Student"],
+  "/documents": ["Admin", "Professor", "Student"],
   "/documents/student": ["Student"],
   "/dashboard": [],
   "/projects": [],
@@ -23,7 +23,7 @@ const rolesPermitted: RoutesByRolesPermitted = {
 
 // Ensure "Admin" is included in all routes at the start
 Object.keys(rolesPermitted).forEach((route) => {
-  if (!rolesPermitted[route].includes("Admin")) {
+  if (!rolesPermitted[route].includes("Admin") && route !== "/documents/student" && route !== "/courses") {
     rolesPermitted[route].unshift("Admin"); // Add "Admin" at the beginning
   }
 });
